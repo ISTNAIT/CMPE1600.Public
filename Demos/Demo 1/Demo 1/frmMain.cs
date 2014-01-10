@@ -15,5 +15,16 @@ namespace Demo_1
         {
             InitializeComponent();
         }
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            tbText.Text = "You follow directions well.";
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("I am loading.  BOW BEFORE ZOD!");
+        }
+
     }
 }
