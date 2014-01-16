@@ -41,9 +41,11 @@
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // tbText
             // 
+            this.tbText.AcceptsReturn = true;
             this.tbText.Location = new System.Drawing.Point(12, 12);
             this.tbText.Multiline = true;
             this.tbText.Name = "tbText";

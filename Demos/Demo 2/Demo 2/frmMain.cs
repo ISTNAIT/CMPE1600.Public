@@ -34,5 +34,11 @@ namespace Demo_2
             else
                 btnOK.Enabled = false;
         }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            foreach(string s in tbText.Lines)
+                MessageBox.Show(s);
+        }
     }
 }
