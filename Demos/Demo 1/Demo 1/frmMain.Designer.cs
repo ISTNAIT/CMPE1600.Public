@@ -31,11 +31,12 @@
             this.btnMain = new System.Windows.Forms.Button();
             this.lblText = new System.Windows.Forms.Label();
             this.tbText = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnMain
             // 
-            this.btnMain.Location = new System.Drawing.Point(95, 55);
+            this.btnMain.Location = new System.Drawing.Point(96, 32);
             this.btnMain.Name = "btnMain";
             this.btnMain.Size = new System.Drawing.Size(75, 23);
             this.btnMain.TabIndex = 0;
@@ -60,17 +61,31 @@
             this.tbText.TabIndex = 2;
             this.tbText.Text = "Click the button!";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(13, 65);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "label1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(265, 90);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.tbText);
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.btnMain);
             this.Name = "frmMain";
             this.Text = "Demo 1";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Shown += new System.EventHandler(this.frmMain_Shown);
+            this.Click += new System.EventHandler(this.frmMain_Click);
+            this.DoubleClick += new System.EventHandler(this.frmMain_DoubleClick);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMain_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +96,7 @@
         private System.Windows.Forms.Button btnMain;
         private System.Windows.Forms.Label lblText;
         private System.Windows.Forms.TextBox tbText;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
 
