@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.gbStooge = new System.Windows.Forms.GroupBox();
-            this.rbLarry = new System.Windows.Forms.RadioButton();
-            this.rbMoe = new System.Windows.Forms.RadioButton();
-            this.rbCurly = new System.Windows.Forms.RadioButton();
             this.rbCurlyJoe = new System.Windows.Forms.RadioButton();
+            this.rbCurly = new System.Windows.Forms.RadioButton();
+            this.rbMoe = new System.Windows.Forms.RadioButton();
+            this.rbLarry = new System.Windows.Forms.RadioButton();
             this.btnSelect = new System.Windows.Forms.Button();
             this.cbConfirm = new System.Windows.Forms.CheckBox();
             this.gbStooge.SuspendLayout();
@@ -51,6 +51,39 @@
             this.gbStooge.TabStop = false;
             this.gbStooge.Text = "Favorite Stooge";
             // 
+            // rbCurlyJoe
+            // 
+            this.rbCurlyJoe.AutoSize = true;
+            this.rbCurlyJoe.Location = new System.Drawing.Point(22, 88);
+            this.rbCurlyJoe.Name = "rbCurlyJoe";
+            this.rbCurlyJoe.Size = new System.Drawing.Size(68, 17);
+            this.rbCurlyJoe.TabIndex = 3;
+            this.rbCurlyJoe.Text = "Curly Joe";
+            this.rbCurlyJoe.UseVisualStyleBackColor = true;
+            this.rbCurlyJoe.CheckedChanged += new System.EventHandler(this.rbCurlyJoe_CheckedChanged);
+            // 
+            // rbCurly
+            // 
+            this.rbCurly.AutoSize = true;
+            this.rbCurly.Location = new System.Drawing.Point(22, 65);
+            this.rbCurly.Name = "rbCurly";
+            this.rbCurly.Size = new System.Drawing.Size(48, 17);
+            this.rbCurly.TabIndex = 2;
+            this.rbCurly.Text = "Curly";
+            this.rbCurly.UseVisualStyleBackColor = true;
+            this.rbCurly.CheckedChanged += new System.EventHandler(this.rbCurly_CheckedChanged);
+            // 
+            // rbMoe
+            // 
+            this.rbMoe.AutoSize = true;
+            this.rbMoe.Location = new System.Drawing.Point(22, 42);
+            this.rbMoe.Name = "rbMoe";
+            this.rbMoe.Size = new System.Drawing.Size(46, 17);
+            this.rbMoe.TabIndex = 1;
+            this.rbMoe.Text = "Moe";
+            this.rbMoe.UseVisualStyleBackColor = true;
+            this.rbMoe.CheckedChanged += new System.EventHandler(this.rbMoe_CheckedChanged);
+            // 
             // rbLarry
             // 
             this.rbLarry.AutoSize = true;
@@ -62,36 +95,7 @@
             this.rbLarry.TabStop = true;
             this.rbLarry.Text = "Larry";
             this.rbLarry.UseVisualStyleBackColor = true;
-            // 
-            // rbMoe
-            // 
-            this.rbMoe.AutoSize = true;
-            this.rbMoe.Location = new System.Drawing.Point(22, 42);
-            this.rbMoe.Name = "rbMoe";
-            this.rbMoe.Size = new System.Drawing.Size(46, 17);
-            this.rbMoe.TabIndex = 1;
-            this.rbMoe.Text = "Moe";
-            this.rbMoe.UseVisualStyleBackColor = true;
-            // 
-            // rbCurly
-            // 
-            this.rbCurly.AutoSize = true;
-            this.rbCurly.Location = new System.Drawing.Point(22, 65);
-            this.rbCurly.Name = "rbCurly";
-            this.rbCurly.Size = new System.Drawing.Size(48, 17);
-            this.rbCurly.TabIndex = 2;
-            this.rbCurly.Text = "Curly";
-            this.rbCurly.UseVisualStyleBackColor = true;
-            // 
-            // rbCurlyJoe
-            // 
-            this.rbCurlyJoe.AutoSize = true;
-            this.rbCurlyJoe.Location = new System.Drawing.Point(22, 88);
-            this.rbCurlyJoe.Name = "rbCurlyJoe";
-            this.rbCurlyJoe.Size = new System.Drawing.Size(68, 17);
-            this.rbCurlyJoe.TabIndex = 3;
-            this.rbCurlyJoe.Text = "Curly Joe";
-            this.rbCurlyJoe.UseVisualStyleBackColor = true;
+            this.rbLarry.CheckedChanged += new System.EventHandler(this.rbLarry_CheckedChanged);
             // 
             // btnSelect
             // 
@@ -101,6 +105,7 @@
             this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // cbConfirm
             // 
