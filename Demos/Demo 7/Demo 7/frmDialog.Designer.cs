@@ -43,6 +43,7 @@
             this.btnDismiss.TabIndex = 0;
             this.btnDismiss.Text = "Dismiss";
             this.btnDismiss.UseVisualStyleBackColor = true;
+            this.btnDismiss.Click += new System.EventHandler(this.btnDismiss_Click);
             // 
             // lblFrom
             // 
@@ -75,6 +76,7 @@
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(233, 20);
             this.txtTo.TabIndex = 6;
+            this.txtTo.TextChanged += new System.EventHandler(this.txtTo_TextChanged);
             // 
             // frmDialog
             // 

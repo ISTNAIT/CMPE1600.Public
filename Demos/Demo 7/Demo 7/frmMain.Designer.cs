@@ -44,6 +44,7 @@
             this.btnShow.TabIndex = 0;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // btnHide
             // 
@@ -53,6 +54,7 @@
             this.btnHide.TabIndex = 1;
             this.btnHide.Text = "Hide";
             this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
             // txtTo
             // 
@@ -60,6 +62,7 @@
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(233, 20);
             this.txtTo.TabIndex = 2;
+            this.txtTo.TextChanged += new System.EventHandler(this.txtTo_TextChanged);
             // 
             // txtFrom
             // 
