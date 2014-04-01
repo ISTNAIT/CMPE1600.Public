@@ -8,7 +8,25 @@ namespace Demo_9
 		static Random rand = new Random ();
 		public static void Main (string[] args)
 		{
+			//Below won't work, because signature doesn't match delegate.
+			//Thread dancer1 = new Thread(new ThreadStart(Dance));
 			Dance ();
+			//But:
+
+			Thread dancer1 = new Thread (new ParameterizedThreadStart (Dancer));
+			Object[] parameters = new object[]{ "Bloort", 'c', 200u, 200u };
+			dancer1.Start (parameters);
+
+			//Wait for other threads...
+			Thread.Sleep (500);
+			//Kill them if they can't take a joke.
+			System.Environment.Exit (System.Environment.ExitCode);
+		}
+
+		public static void Dancer(object stuff)
+		{
+			object[] pars = (object[]) stuff;
+			Dance ((string)pars [0], (char)pars [1], (uint)pars [2], (uint)pars [3]);
 		}
 
 		public static string Dance(string start = "Hammer Time!", char precede = ' ',
