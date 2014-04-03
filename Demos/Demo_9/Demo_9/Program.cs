@@ -17,19 +17,19 @@ namespace Demo_9
             //Thread dancer1 = new Thread(new ThreadStart(Dance));
 
             //But:
-            //object[] parameters = null;
-            //Thread dancer1 = new Thread (new ParameterizedThreadStart (Dancer));
-            //parameters = new object[]{ "Get on down.  Get on down and dance!", '1', 200u, 10u, ConsoleColor.Red };
-            //dancer1.IsBackground=true;
-            //dancer1.Start (parameters);
+            object[] parameters = null;
+            Thread dancer1 = new Thread (new ParameterizedThreadStart (Dancer));
+            parameters = new object[]{ "Get on down.  Get on down and dance!", '1', 200u, 20u, ConsoleColor.Red };
+            dancer1.IsBackground=true;
+            dancer1.Start (parameters);
             //dancer1.Join();
 
 
-            //Thread dancer2 = new Thread(new ParameterizedThreadStart(Dancer));
-            //parameters = new object[] { "Stop!  Hammuh Tyme!", '2', 400u, 10u, ConsoleColor.Blue };
-            //dancer2.IsBackground = true;
-            //dancer2.Start(parameters);
-            //dancer2.Join();
+            Thread dancer2 = new Thread(new ParameterizedThreadStart(Dancer));
+            parameters = new object[] { "Stop!  Hammuh Tyme!", '2', 400u, 10u, ConsoleColor.Blue };
+            dancer2.IsBackground = true;
+            dancer2.Start(parameters);
+            dancer2.Join();
 
             //Wait for other threads...
             //Thread.Sleep (500);
@@ -56,11 +56,14 @@ namespace Demo_9
                 for (int i = 0; i < count; ++i)
                 {
                     if (delay > 0) Thread.Sleep((int)delay);
-                    Console.ForegroundColor = cc;
-                    Console.Write(precede);
-                    //Print a random element of symbols.
-                    Console.Write(symbols[rand.Next(symbols.Length)]);
-                    Console.ForegroundColor = ConsoleColor.White;
+                    lock (TheOneTrueRing) //Appropriate use of lock to protect colored console output
+                    {
+                        Console.ForegroundColor = cc;
+                        Console.Write(precede);
+                        //Print a random element of symbols.
+                        Console.Write(symbols[rand.Next(symbols.Length)]);
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                 }
             }
             Console.WriteLine();
