@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbPrimes = new System.Windows.Forms.ListBox();
             this.nudMin = new System.Windows.Forms.NumericUpDown();
             this.nudMax = new System.Windows.Forms.NumericUpDown();
@@ -38,6 +39,7 @@
             this.lblCount = new System.Windows.Forms.Label();
             this.btnAction = new System.Windows.Forms.Button();
             this.nudCount = new System.Windows.Forms.NumericUpDown();
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInterval)).BeginInit();
@@ -86,7 +88,7 @@
             this.nudMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudMax.ThousandsSeparator = true;
             this.nudMax.Value = new decimal(new int[] {
-            1000000,
+            50000,
             0,
             0,
             0});
@@ -176,6 +178,10 @@
             this.nudCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudCount.ThousandsSeparator = true;
             // 
+            // tmrMain
+            // 
+            this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +220,7 @@
         private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.Button btnAction;
         private System.Windows.Forms.NumericUpDown nudCount;
+        private System.Windows.Forms.Timer tmrMain;
     }
 }
 

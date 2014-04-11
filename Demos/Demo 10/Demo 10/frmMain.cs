@@ -38,9 +38,7 @@ namespace Demo_10
                     lbPrimes.Items.Clear();
                     nudCount.Value = 0;
                     StartThreads();
-                    while (!ThreadDoneP()) ;
-                    btnAction.Text = "Start";
-                        break;
+                    break;
                 default:
                     StopThreads();
                     btnAction.Text = "Start";
@@ -68,24 +66,32 @@ namespace Demo_10
                 //Create some threads
                 threadList.Add(new Thread(new ParameterizedThreadStart(FindPrimes)));
                 threadList.Last().Start(new Limits(current, next));
+                threadList.Last().IsBackground = true;
                 current = next + 1;
                 next = current + increment;
             }
-
+            //Problem!!  If my threads are foreground, we wait here until they are all done.
+            //If they are background, they all exit once we get here.
+            //We can solve some of these problems with a threadpool.
         }
 
         private bool ThreadDoneP()
         {
             if (threadList==null || threadList.Count < 1) return true;
             foreach (Thread t in threadList)
-                if (t.ThreadState == ThreadState.Running)
+                if (t.IsAlive)
                     return false;
             return true;
         }
 
         private void StopThreads()
         {
-            //But I can't!  They're out of my control!!
+            if (threadList == null || threadList.Count < 1) return; //Nothing to do
+
+            foreach (Thread t in threadList)
+            {
+                t.Abort();
+            }
 
         }
 
@@ -135,6 +141,14 @@ namespace Demo_10
                 if (val % i == 0)
                     return false;
             return true;
+        }
+
+        private void tmrMain_Tick(object sender, EventArgs e)
+        {
+            if (ThreadDoneP())
+                btnAction.Text = "Start";
+            else
+                btnAction.Text = "Stop";
         }
     }
 }
