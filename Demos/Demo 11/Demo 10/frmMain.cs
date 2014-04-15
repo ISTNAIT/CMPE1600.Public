@@ -40,7 +40,7 @@ namespace Demo_10
                     StartThreads();
                     break;
 
-                case "Working": default:
+                case "Working": case "Sorting": default:
                     MessageBox.Show("I'm busy, dammit", "Working", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     break;
             }
@@ -98,13 +98,23 @@ namespace Demo_10
         {
             //Stupid listbox sorts alphabetically.
             //There are more elegant ways to do this, but brute force is easy to follow.
+            btnAction.Text = "Sorting...";
+            pbProgress.Maximum = lbPrimes.Items.Count*2;
+            pbProgress.Value = 0;
             List<int> values = new List<int>(lbPrimes.Items.Count);
             foreach (object o in lbPrimes.Items)
+            {
                 values.Add((int)o);
-            values.Sort();
-            lbPrimes.Items.Clear();
+                pbProgress.Value++;
+            }
+            values.Sort(); lbPrimes.Items.Clear();
             foreach (int i in values)
+            {
                 lbPrimes.Items.Add(i);
+                pbProgress.Value++;
+            }
+            btnAction.Text = "Start";
+           
         }
 
         private void AddPrime(object val)
