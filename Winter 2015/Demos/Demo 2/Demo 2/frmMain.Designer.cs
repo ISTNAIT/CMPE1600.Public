@@ -126,7 +126,7 @@
             // aboutDemo2ToolStripMenuItem
             // 
             this.aboutDemo2ToolStripMenuItem.Name = "aboutDemo2ToolStripMenuItem";
-            this.aboutDemo2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutDemo2ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.aboutDemo2ToolStripMenuItem.Text = "About Demo 2";
             this.aboutDemo2ToolStripMenuItem.Click += new System.EventHandler(this.aboutDemo2ToolStripMenuItem_Click);
             // 
