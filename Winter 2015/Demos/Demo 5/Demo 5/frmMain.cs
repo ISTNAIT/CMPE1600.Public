@@ -36,6 +36,10 @@ namespace Demo_5
             lbStooges.Items.Add("Larry");
             lbStooges.Items.Add("Curly Joe");
             lbStooges.Items.Add("Shemp");
+            lbStooges.Items.Add("Groucho");
+            lbStooges.Items.Add("Chico");
+            lbStooges.Items.Add("Harpo");
+            lbStooges.Items.Add("Zeppo");
             nudNumber.Maximum = lbStooges.Items.Count - 1;
             lbStooges.SelectedIndex = 1;
         }
@@ -47,7 +51,18 @@ namespace Demo_5
 
         private void lbStooges_SelectedIndexChanged(object sender, EventArgs e)
         {
-            nudNumber.Value = lbStooges.SelectedIndex;
+            if (lbStooges.SelectedIndex == -1)
+                lbStooges.SelectedItem = 0;
+            else 
+                nudNumber.Value = lbStooges.SelectedIndex;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+           while(lbStooges.SelectedIndex != -1)
+           {
+               lbStooges.Items.Remove(lbStooges.SelectedItem);
+           }
         }
     }
 }
