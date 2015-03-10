@@ -35,7 +35,7 @@ namespace Demo_9
     public partial class frmMain : Form
     {
         private Thread working;
-        private bool stopping;
+        private volatile bool stopping;
 
         public frmMain()
         {
