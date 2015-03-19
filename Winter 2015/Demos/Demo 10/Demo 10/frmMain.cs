@@ -26,14 +26,15 @@ namespace Demo_10
         {
             //Set up file open dialog for the way I want it
             ofdFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            ofdFile.Filter ="PNG Files (*.png)|*.png|JPG Files (*.jpeg)" +
-                "|*.jpeg|GIF Files (*.gif)|*.gif|All Files (*.*)|*.*";
+            ofdFile.Filter ="All Files (*.*)|*.*|PNG Files (*.png)|*.png|JPG Files (*.jpeg)" +
+                "|*.jpeg|GIF Files (*.gif)|*.gif";
 
             DialogResult dr = ofdFile.ShowDialog();
             if(dr == DialogResult.OK)
             {
                 pbImage.Image = Image.FromFile(ofdFile.FileName);
                 btnStopGo.Enabled = true;
+                btnChange.Enabled = true;
             }
         }
 
@@ -64,6 +65,27 @@ namespace Demo_10
         private void tmrToggle_Tick(object sender, EventArgs e)
         {
             pbImage.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            pbImage.Refresh();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            btnChange.Enabled = false;
+            btnStopGo.Enabled = false;
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            Bitmap bm = (Bitmap)pbImage.Image;
+            for (int x = 0; x< bm.Width; ++x)
+                for(int y = 0 ; y < bm.Height; ++y)
+                {
+                    Color pixel = bm.GetPixel(x, y);
+                    int average = pixel.G / 3 + pixel.R / 3 + pixel.B / 3;
+                    byte intensity = (byte)average;
+                    pixel = Color.FromArgb(intensity, intensity, intensity);
+                    bm.SetPixel(x, y, pixel);
+                }
             pbImage.Refresh();
         }
     }

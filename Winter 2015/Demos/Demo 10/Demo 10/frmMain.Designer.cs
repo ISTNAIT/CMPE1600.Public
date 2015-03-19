@@ -33,11 +33,12 @@
             this.btnStopGo = new System.Windows.Forms.Button();
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMessageBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrToggle = new System.Windows.Forms.Timer(this.components);
             this.ofdFile = new System.Windows.Forms.OpenFileDialog();
+            this.btnChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             // btnStopGo
             // 
             this.btnStopGo.Enabled = false;
-            this.btnStopGo.Location = new System.Drawing.Point(185, 308);
+            this.btnStopGo.Location = new System.Drawing.Point(81, 308);
             this.btnStopGo.Name = "btnStopGo";
             this.btnStopGo.Size = new System.Drawing.Size(75, 23);
             this.btnStopGo.TabIndex = 1;
@@ -82,6 +83,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // loadImageToolStripMenuItem
+            // 
+            this.loadImageToolStripMenuItem.Name = "loadImageToolStripMenuItem";
+            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadImageToolStripMenuItem.Text = "Load Image";
+            this.loadImageToolStripMenuItem.Click += new System.EventHandler(this.loadImageToolStripMenuItem_Click);
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,28 +105,33 @@
             this.showMessageBoxToolStripMenuItem.Text = "Show Message Box";
             this.showMessageBoxToolStripMenuItem.Click += new System.EventHandler(this.showMessageBoxToolStripMenuItem_Click);
             // 
-            // loadImageToolStripMenuItem
-            // 
-            this.loadImageToolStripMenuItem.Name = "loadImageToolStripMenuItem";
-            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.loadImageToolStripMenuItem.Text = "Load Image";
-            this.loadImageToolStripMenuItem.Click += new System.EventHandler(this.loadImageToolStripMenuItem_Click);
-            // 
             // tmrToggle
             // 
             this.tmrToggle.Tick += new System.EventHandler(this.tmrToggle_Tick);
+            // 
+            // btnChange
+            // 
+            this.btnChange.Location = new System.Drawing.Point(303, 308);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(75, 23);
+            this.btnChange.TabIndex = 3;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 343);
+            this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnStopGo);
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.msMenu);
             this.MainMenuStrip = this.msMenu;
             this.Name = "frmMain";
             this.Text = "Demo 10";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();
@@ -138,6 +151,7 @@
         private System.Windows.Forms.ToolStripMenuItem showMessageBoxToolStripMenuItem;
         private System.Windows.Forms.Timer tmrToggle;
         private System.Windows.Forms.OpenFileDialog ofdFile;
+        private System.Windows.Forms.Button btnChange;
     }
 }
 
