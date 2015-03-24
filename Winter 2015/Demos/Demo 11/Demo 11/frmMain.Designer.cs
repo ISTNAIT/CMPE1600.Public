@@ -42,6 +42,7 @@
             this.btnGetName.TabIndex = 0;
             this.btnGetName.Text = "Name Your Penguin";
             this.btnGetName.UseVisualStyleBackColor = true;
+            this.btnGetName.Click += new System.EventHandler(this.btnGetName_Click);
             // 
             // pbPenguins
             // 
@@ -59,8 +60,9 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(12, 240);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 13);
+            this.lblName.Size = new System.Drawing.Size(77, 13);
             this.lblName.TabIndex = 2;
+            this.lblName.Text = "Penguin Name";
             // 
             // frmMain
             // 
@@ -72,6 +74,7 @@
             this.Controls.Add(this.btnGetName);
             this.Name = "frmMain";
             this.Text = "Demo 11";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPenguins)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
