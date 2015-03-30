@@ -38,14 +38,14 @@ namespace Demo_12
             if(e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
-                UnCheckParent();
+                UnCheckParent.Invoke();
                 Hide();
             }
         }
 
         private void txtLabel_TextChanged(object sender, EventArgs e)
         {
-            ChangeLabel(txtLabel.Text);
+            ChangeLabel.Invoke(txtLabel.Text);
         }
     }
 }
